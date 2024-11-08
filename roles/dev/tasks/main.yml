@@ -1,0 +1,15 @@
+---    
+  - name: development environment installed
+    apt:
+      name: build-essential
+      state: latest
+
+  - name: Create /etc/motd file
+    copy:
+      dest: "/etc/motd"
+      content: |
+        ######################################
+        # Instance Type: {{ morpheus['instance']['instanceTypeName'] }} #
+        # OS:            {{ morpheus['server']['osType'] }}              #
+        # This came from Ansible playbook!     #
+        ######################################
